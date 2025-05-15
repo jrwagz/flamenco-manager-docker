@@ -1,0 +1,46 @@
+# Configuration file for Flamenco.
+# For an explanation of the fields, refer to flamenco-manager-example.yaml
+#
+# NOTE: this file will be overwritten by Flamenco Manager's web-based configuration system.
+#
+# This file was written on 2025-04-08 18:51:57 -06:00 by Flamenco 3.7
+---
+_meta:
+  version: 3
+manager_name: Flamenco
+database: ./persist/flamenco-manager.sqlite
+database_check_period: 10m0s
+listen: :8080
+autodiscoverable: true
+local_manager_storage_path: ./persist/flamenco-manager-storage
+shared_storage_path: F:\flamenco
+shaman:
+  enabled: false
+  garbageCollect:
+    period: 24h0m0s
+    maxAge: 744h0m0s
+    extraCheckoutPaths: []
+task_timeout: 10m0s
+worker_timeout: 1m0s
+blocklist_threshold: 3
+task_fail_after_softfail_count: 3
+mqtt:
+  client:
+    broker: ""
+    clientID: flamenco
+    topic_prefix: flamenco
+    username: ""
+    password: ""
+variables:
+  blender:
+    values:
+      - platform: linux
+        value: C:\Program Files\Blender Foundation\Blender 4.4\blender.exe
+      - platform: windows
+        value: C:\Program Files\Blender Foundation\Blender 4.4\blender.exe
+      - platform: darwin
+        value: C:\Program Files\Blender Foundation\Blender 4.4\blender.exe
+  blenderArgs:
+    values:
+      - platform: all
+        value: -b -y

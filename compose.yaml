@@ -1,0 +1,12 @@
+---
+services:
+  flamenco-manager:
+    # TODO: add a health check to verify the service is running
+    # TODO: replace this with a published version once it's working
+    # image: 'ghcr.io/jrwagz/flamenco-manager-docker:justinwagner-d2c9ba7-dirty'
+    build:
+      context: ./
+    ports:
+      - '8080:8080'
+    volumes:
+      - ./persist:/flamenco/persist

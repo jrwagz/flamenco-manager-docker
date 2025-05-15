@@ -62,6 +62,15 @@ lint_yaml:
 		-w "$(PWD)" \
 		$(YAML_LINT_IMAGE) yamllint -c .yamllint.yaml .
 
+.PHONY: local_compose_up
+local_compose_up:
+	docker-compose up -d --build --force-recreate
+	docker-compose ps
+
+.PHONY: local_compose_down
+local_compose_down:
+	docker-compose down
+	docker-compose ps
 
 # Aliases
 .PHONY: lint
