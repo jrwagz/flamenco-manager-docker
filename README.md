@@ -1,15 +1,37 @@
-# Docker Image Template Repo
+# Flamenco Manager Docker Image
 
-Template repository for building a docker image including all of the GitHub actions to verify and publish the image.
+Docker image for running the [Flamenco](https://flamenco.blender.org) Manager service which is used to coordinate
+distributed rendering for [Blender](https://www.blender.org/) projects.
 
-![Main](https://github.com/jrwagz/docker-image-example-template/actions/workflows/docker-build-publish.yaml/badge.svg)
+![Main](https://github.com/jrwagz/flamenco-manager-docker/actions/workflows/docker-build-publish.yaml/badge.svg)
 
-## Using the template
+## Building
 
-In order to create a new repo from this template, simply follow the
-[officially documented steps](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template).
+In order to build the image simply use the following makefile target:
 
-## Dependencies
+```bash
+make build
+```
+
+## Running Locally
+
+In order to launch the flamenco-manager service with this docker image locally you just need to run the following
+makefile target:
+
+```bash
+make local_compose_up
+```
+
+And then to stop the service and tear it down run the following:
+
+```bash
+make local_compose_down
+```
+
+This simply launches the [Docker Compose](https://docs.docker.com/compose/) setup defined in
+[./compose.yaml](./compose.yaml)
+
+## Development Dependencies
 
 The following dependencies must be installed on your development machine to properly develop this repo:
 
